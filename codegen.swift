@@ -9,15 +9,6 @@ struct Icon: Codable {
     let styles: [String]
     let unicode: String
     let label: String
-    let svg: [String: SVG]
-}
-
-struct SVG: Codable {
-    let raw: String
-    let viewBox: [String]
-    let width: UInt
-    let height: UInt
-    let path: String
 }
 
 extension String {
