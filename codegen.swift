@@ -25,6 +25,9 @@ extension String {
         if self == "subscript" {
             return "`subscript`"
         }
+        if self == "repeat" {
+            return "`repeat`"
+        }
         return self
     }
 }
@@ -119,9 +122,10 @@ fontAwesomeEnum += """
 
 sortedKeys.forEach { key in
     guard let value = icons[key] else { return }
+    let styles = value.styles.filter { $0 != "duotone" }
     let enumKeyName = key.filteredKeywords().camelCased(with: "-")
     fontAwesomeEnum += """
-                case .\(enumKeyName): return [.\(value.styles.joined(separator: ", ."))]
+                case .\(enumKeyName): return [.\(styles.joined(separator: ", ."))]
     """
     fontAwesomeEnum += "\n"
 }
